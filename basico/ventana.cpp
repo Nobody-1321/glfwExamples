@@ -1,4 +1,7 @@
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>  // Incluye el archivo de cabecera de GLAD primero
+#include <GLFW/glfw3.h>  // Luego incluye el archivo de cabecera de GLFW
+#include <iostream>  // Finalmente, incluye otros archivos de cabecera necesarios
+
 
 int main() {
     // Inicializar GLFW
@@ -15,7 +18,10 @@ int main() {
 
     // Configurar el contexto OpenGL
     glfwMakeContextCurrent(window);
-
+    if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
+        std::cout << "failed to initialize GLAD " << std::endl;
+        return -1;
+    }
     // Bucle principal
     while (!glfwWindowShouldClose(window)) {
         // Renderizar aquí
