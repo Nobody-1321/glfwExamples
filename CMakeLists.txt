@@ -7,12 +7,17 @@ set(MAIN_SOURCE ${SOURCE_MAIN_DIR}/ventana.cpp)
 set(LIBRARIES_DIR libs)
 set(LIBRARIES glad)
 
-
-#message("este es el path de --------${LIBRARIES_DIR}/${LIBRARIES}")
-
 add_executable(glfwProject ${MAIN_SOURCE})
 
+
 find_package(glfw3 REQUIRED)
+
+# Incluir la biblioteca GLFW de forma estática
+set(GLFW_BUILD_STATIC_LIBS OFF)
+set(GLFW_BUILD_EXAMPLES OFF)
+set(GLFW_BUILD_TESTS OFF)
+set(GLFW_BUILD_DOCS OFF)
+
 target_link_libraries(glfwProject glfw)
 
 add_subdirectory(${LIBRARIES_DIR}/${LIBRARIES})

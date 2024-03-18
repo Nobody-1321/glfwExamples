@@ -2,6 +2,8 @@
 #include <GLFW/glfw3.h>  // Luego incluye el archivo de cabecera de GLFW
 #include <iostream>  // Finalmente, incluye otros archivos de cabecera necesarios
 
+void processInput(GLFWwindow *window);
+void processChangeColor();
 
 int main() {
     // Inicializar GLFW
@@ -27,11 +29,24 @@ int main() {
         // Renderizar aquí
 
         // Intercambiar los buffers y procesar los eventos
-        glfwSwapBuffers(window);
+        processInput(window);
         glfwPollEvents();
+        glfwSwapBuffers(window);
     }
 
     // Limpiar y terminar GLFW
     glfwTerminate();
     return 0;
+}
+void processInput(GLFWwindow *window)
+{
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+       processChangeColor();
+       // glfwSetWindowShouldClose(window, true);
+        
+}
+
+void processChangeColor(){
+ glClearColor(0.2f,0.3f,0.3f,1.0f);
+ glClear(GL_COLOR_BUFFER_BIT);
 }
