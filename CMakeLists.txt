@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 project(glfwProject VERSION 2.0.1 LANGUAGES CXX)
 
 set(SOURCE_MAIN_DIR basico)
-set(MAIN_SOURCE ${SOURCE_MAIN_DIR}/ventana.cpp)
+set(MAIN_SOURCE ${SOURCE_MAIN_DIR}/trangleRectan.cpp)
 
 set(LIBRARIES_DIR libs)
 set(LIBRARIES glad)
